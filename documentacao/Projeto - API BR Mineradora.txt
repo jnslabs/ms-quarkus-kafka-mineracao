@@ -1,0 +1,25 @@
+Projeto - API BR Meneradora
+
+Requisitos Funcionais: 
+A BR : Mineradera é uma empresa rasieia que atuenoremo de extração do minério de ferr e venda a matéria prima no mercado intermadianal tendo clientes na europa,China e EUA. 
+A BR- Mineradora é uma empresa exportadora e por isso tem melhores resultados quando o dólar está mais valorizado.
+Como parte do processo de modermização das aplcações web e ferramentas digitais da empresa, surgiu a necessidade do desenvolvimento de uma POC.(Proof Of Concept) para uma API quer permita receber propostas de compra de clientes, analisar e câmbio do par de moedas Raal Brasileiro em compuração com o Dolar Americano e criar a partir disso Oportunidades de venda do menério.
+Essas Oportunidades de Venda devem ser acessadas diretamente via API Rest e também devem gerar relatórios no formato CSV para análise  operadores de Negócios.
+
+
+O fluxo básico é:
+
+1-Acompanhamento da cotação do dólar americano.Se o dólar estiver valorizando e houver sequências de valorização da moeda americana,envia esta informação atualizada para o banco de dados e considera esse valor atual do dólar na criação de uma nova proposta.
+
+2- Entrada de novas propostas de compra por parte dos clientes.
+A proposta deve ter os seguintes dados: 
+- Nome da empresa Clente, valor oferecido por tonelada de minério, quantas toneladas, país de origem, validade da proposta e data da criação da proposta.
+
+2.1 - Regras sobre as propostas:
+- Apenas usuários do tipo cliente podem inserir novas propostas no sistema.
+
+- Um operador pode consultar detalhes da proposta, mas não pode detetar propostas.
+- Um usuário Gerente pode consultar detalhes e também deletar propostas.
+
+3- Com informações de novas propostas e do câmbio atual, são criadas opurtunidades de Venda que ficam acessiveis aos operadores da BR - Mineradora por formato JSON ou via arquivos CSV.
+O fluxo de funcionamento da Aplicação está melhor descrito na imagem.
