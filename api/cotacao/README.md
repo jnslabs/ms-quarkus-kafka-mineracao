@@ -10,6 +10,12 @@ AWESOME API
 
  - https://docs.awesomeapi.com.br/api-de-moedas
 
+# Conexão com Banco
+
+```shell
+docker run --name dev-db -p 5432:5432 -e POSTGRES_PASSWORD=1234 postgres
+```
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
