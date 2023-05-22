@@ -1,0 +1,20 @@
+Requisitos Técnicos - API BR - Mineradora
+
+Descrição
+Requisitos Técnicos
+
+- Cloud First:
+A intenção da equipe de tecnologia da BR - Mineradora é migrar suas aplicações para Cloud e criar a novas API's e aplicações já preparadas para executar em ambientes de nuvem. Portanto, essa API de Oportunidades de Venda deve ser planejada pensando em ser uma aplicação adequada para execução em Cloud.
+
+- Background das Equipes de Desenvolvimento:
+
+A BR - Mineradora já possui uma equipe de engenheiros de software que deverão seguir com a manutenção e desenvolvimento em parceria com a Learm Code Club. À empresa já tem boas e confiáveis aplicações que foram desenvolvidas com Java EE. A prioridade é manter a linguagem Java como a principal linguagem das novas aplicações.
+
+- Custos:
+
+Os engenheiros da BR - Mineradora sabem que o Java tende à consumir mais recursos de CPU e RAM do hardware é que em cloud isso tende a aumentar os custos ($$$). Entretanto os engenheiros sabem também a plataforma java evoluiu e continua sendo uma boa alternativa mesmo para cloud. Fica a critério da Learn Code Club e também como um desafio, planejar uma arquitetura que
+pense em tecnologias modernas, segurança e custos financeiros.
+
+- Resiliência da Aplicaçõo:
+
+Esta aplcação tende à ser usada em algum momento a médio e longo prazo, durante 24 horas por dia. É necessário que ela possa ter escalabilidade e alta dispontbilidade.
