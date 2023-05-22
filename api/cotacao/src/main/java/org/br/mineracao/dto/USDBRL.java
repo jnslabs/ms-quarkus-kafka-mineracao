@@ -10,9 +10,9 @@ import lombok.extern.jackson.Jacksonized;
  * @Created 21/05/2023 - 13:26
  */
 
-@Jacksonized
 @Data
 @Builder
+@Jacksonized
 @AllArgsConstructor
 public class USDBRL {
 

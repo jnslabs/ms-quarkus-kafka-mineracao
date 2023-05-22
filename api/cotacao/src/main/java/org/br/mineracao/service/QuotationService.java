@@ -1,7 +1,5 @@
 package org.br.mineracao.service;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import org.br.mineracao.client.CurrencyPriceClient;
 import org.br.mineracao.dto.CurrencyPriceDTO;
 import org.br.mineracao.dto.QuotationDTO;
@@ -9,7 +7,11 @@ import org.br.mineracao.entity.QuotationEntity;
 import org.br.mineracao.message.KafkaEvents;
 import org.br.mineracao.repository.QuotationRepository;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -23,6 +25,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @ApplicationScoped
 public class QuotationService {
 
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
+
     @Inject
     @RestClient
     CurrencyPriceClient currencyPriceClient;
@@ -35,7 +39,11 @@ public class QuotationService {
 
     public void getCurrencyPrice() {
 
+        LOG.info("--- Executando chamada currencyPrice --");
+
         CurrencyPriceDTO currencyPriceInfo = currencyPriceClient.getPricePair("USD-BRL");
+
+        LOG.info("--- Finalizacao chamada currencyPrice // COTACAO DOLLAR: {} --", currencyPriceInfo.getUSDBRL().bid);
 
         if (updateCurrentInfoPrice(currencyPriceInfo)) {
             kafkaEvents.sendNewKafkaEvent(QuotationDTO

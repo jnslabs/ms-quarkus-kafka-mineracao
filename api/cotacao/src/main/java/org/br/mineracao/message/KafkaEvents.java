@@ -1,6 +1,6 @@
 package org.br.mineracao.message;
 
-import jakarta.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.ApplicationScoped;
 import org.br.mineracao.dto.QuotationDTO;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;

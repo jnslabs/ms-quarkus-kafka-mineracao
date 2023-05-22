@@ -1,8 +1,8 @@
 package org.br.mineracao.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.jackson.Jacksonized;
 
 /**
@@ -10,10 +10,10 @@ import lombok.extern.jackson.Jacksonized;
  * @Created 21/05/2023 - 13:34
  */
 
-@Jacksonized
 @Data
-@Builder
+@Jacksonized
 @AllArgsConstructor
+@NoArgsConstructor
 public class CurrencyPriceDTO {
 
     public USDBRL USDBRL;
