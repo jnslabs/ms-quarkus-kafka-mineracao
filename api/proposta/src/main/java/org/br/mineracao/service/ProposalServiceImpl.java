@@ -6,6 +6,7 @@ import org.br.mineracao.entity.ProposalEntity;
 import org.br.mineracao.message.KafkaEvent;
 import org.br.mineracao.repository.ProposalRepository;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.Date;
@@ -14,6 +15,8 @@ import java.util.Date;
  * @Autor Jairo Nascimento
  * @Created 22/05/2023 - 18:12
  */
+
+@ApplicationScoped
 public class ProposalServiceImpl implements ProposalService {
 
     @Inject
@@ -31,11 +34,12 @@ public class ProposalServiceImpl implements ProposalService {
                 .country(proposal.getCountry())
                 .priceTonne(proposal.getPriceTonne())
                 .tonnes(proposal.getTonnes())
-                .proposalValidtyDays(proposal.getProposalValidtyDays())
+                .proposalValidityDays(proposal.getProposalValidityDays())
                 .build();
     }
 
     @Override
+    @Transactional
     public void createNewProposal(ProposalDetailsDTO proposalDetailsDTO) {
         ProposalDTO proposalDTO = buildAndSaveNewProposal(proposalDetailsDTO);
         kafkaMessage.sendNewKafkaEvent(proposalDTO);
@@ -47,14 +51,13 @@ public class ProposalServiceImpl implements ProposalService {
         proposalRepository.deleteById(id);
     }
 
-    @Transactional
     private ProposalDTO buildAndSaveNewProposal(ProposalDetailsDTO proposalDetailsDTO) {
 
         try {
 
             ProposalEntity proposalEntity = new ProposalEntity();
             proposalEntity.setCreated(new Date());
-            proposalEntity.setProposalValidtyDays(proposalDetailsDTO.getProposalValidtyDays());
+            proposalEntity.setProposalValidityDays(proposalDetailsDTO.getProposalValidityDays());
             proposalEntity.setCountry(proposalDetailsDTO.getCountry());
             proposalEntity.setCustomer(proposalDetailsDTO.getCustomer());
             proposalEntity.setPriceTonne(proposalDetailsDTO.getPriceTonne());

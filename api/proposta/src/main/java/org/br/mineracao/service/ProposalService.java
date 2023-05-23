@@ -8,7 +8,7 @@ import javax.enterprise.context.ApplicationScoped;
  * @Autor Jairo Nascimento
  * @Created 22/05/2023 - 18:05
  */
-@ApplicationScoped
+
 public interface ProposalService {
 
     ProposalDetailsDTO findFullProposal(Long id);
