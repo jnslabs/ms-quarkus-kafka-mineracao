@@ -32,7 +32,7 @@ public class ProposalEntity {
     private String country;
 
     @Column(name = "proposal_validity_days")
-    private Integer proposalValidtyDays;
+    private Integer proposalValidityDays;
 
     private Date created;
 }
