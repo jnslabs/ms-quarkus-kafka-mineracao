@@ -8,9 +8,12 @@ import org.br.mineracao.entity.QuotationEntity;
 import org.br.mineracao.repository.OpportunityRepository;
 import org.br.mineracao.repository.QuotationRepository;
 import org.br.mineracao.util.CSVHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,15 +29,19 @@ import java.util.List;
 //@Traced
 public class OpportunityServiceImpl implements OpportunityService {
 
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
+
     @Inject
     QuotationRepository quotationRepository;
 
     @Inject
     OpportunityRepository opportunityRepository;
 
-
     @Override
+    @Transactional
     public void buildOpportunity(ProposalDTO proposal) {
+
+        LOG.info("Salvando uma Oportunidade no Banco de Dados");
 
         List<QuotationEntity> quotationEntities = quotationRepository.findAll().list();
         Collections.reverse(quotationEntities);
@@ -51,7 +58,10 @@ public class OpportunityServiceImpl implements OpportunityService {
     }
 
     @Override
+    @Transactional
     public void saveQuotation(QuotationDTO quotation) {
+
+        LOG.info("Salvando quotação no banco de dados.");
 
         QuotationEntity createQuotation = new QuotationEntity();
         createQuotation.setDate(new Date());
