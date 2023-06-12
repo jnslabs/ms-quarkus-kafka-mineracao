@@ -31,6 +31,7 @@ public class ProposalServiceImpl implements ProposalService {
 
         return ProposalDetailsDTO.builder()
                 .proposalId(proposal.getId())
+                .customer(proposal.getCustomer())
                 .country(proposal.getCountry())
                 .priceTonne(proposal.getPriceTonne())
                 .tonnes(proposal.getTonnes())

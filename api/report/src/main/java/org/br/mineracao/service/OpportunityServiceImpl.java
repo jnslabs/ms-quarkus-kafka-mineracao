@@ -91,21 +91,21 @@ public class OpportunityServiceImpl implements OpportunityService {
 
     }
 
-    @Override
-    public ByteArrayInputStream generateCSVOpportunityReport() {
-
-        List<OpportunityDTO> opportunityList = new ArrayList<>();
-
-        opportunityRepository.findAll().list()
-                .forEach(item -> {
-                    opportunityList.add(OpportunityDTO.builder()
-                            .proposalId(item.getProposalId())
-                            .customer(item.getCustomer())
-                            .priceTonne(item.getPriceTonne())
-                            .lastDollarQuotation(item.getLastDollarQuotation())
-                            .build());
-                });
-
-        return CSVHelper.OpportunitiesToCSV(opportunityList);
-    }
+//    @Override
+//    public ByteArrayInputStream generateCSVOpportunityReport() {
+//
+//        List<OpportunityDTO> opportunityList = new ArrayList<>();
+//
+//        opportunityRepository.findAll().list()
+//                .forEach(item -> {
+//                    opportunityList.add(OpportunityDTO.builder()
+//                            .proposalId(item.getProposalId())
+//                            .customer(item.getCustomer())
+//                            .priceTonne(item.getPriceTonne())
+//                            .lastDollarQuotation(item.getLastDollarQuotation())
+//                            .build());
+//                });
+//
+//        return CSVHelper.OpportunitiesToCSV(opportunityList);
+//    }
 }
