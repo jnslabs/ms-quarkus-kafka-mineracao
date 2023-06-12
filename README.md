@@ -1,7 +1,19 @@
 # ms-quarkus-kafka-mineracao
 Projeto desenvolvera sistema para mineradora para contação de contratos
 
-## Keycloak
+## Inicializar projeto
+
+### Start container Kafka
+`workspace docker`
+
+### Start Container Postgres
+`workspace docker`
+
+* Criar Banco proposaldb
+
+* Criar Banco reportdb
+
+### Keycloak
 
 * Docker
 
