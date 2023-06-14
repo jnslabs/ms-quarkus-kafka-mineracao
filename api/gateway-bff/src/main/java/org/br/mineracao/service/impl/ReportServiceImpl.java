@@ -1,9 +1,13 @@
 package org.br.mineracao.service.impl;
 
+import org.br.mineracao.client.ReportRestClient;
 import org.br.mineracao.dto.OpportunityDTO;
 import org.br.mineracao.service.ReportService;
+import org.br.mineracao.util.CSVHelper;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.io.ByteArrayInputStream;
 import java.util.List;
 
@@ -13,13 +17,19 @@ import java.util.List;
  */
 @ApplicationScoped
 public class ReportServiceImpl implements ReportService {
+
+    @Inject
+    @RestClient
+    ReportRestClient reportRestClient;
+
     @Override
     public ByteArrayInputStream generateCSVOpportunityReport() {
-        return null;
+        List<OpportunityDTO> opportunityData = reportRestClient.requestOpportunitiesData();
+        return CSVHelper.OpportunitiesToCSV(opportunityData);
     }
 
     @Override
     public List<OpportunityDTO> getOpportunitiesData() {
-        return null;
+        return reportRestClient.requestOpportunitiesData();
     }
 }
