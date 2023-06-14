@@ -80,7 +80,7 @@ public class OpportunityServiceImpl implements OpportunityService {
                 .stream()
                 .forEach(item -> {
                     opportunities.add(OpportunityDTO.builder()
-                            .proposalId(item.getProposalId())
+                            .proposalId(item.getId())
                             .customer(item.getCustomer())
                             .priceTonne(item.getPriceTonne())
                             .lastDollarQuotation(item.getLastDollarQuotation())

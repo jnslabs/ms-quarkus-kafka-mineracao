@@ -16,7 +16,7 @@ import javax.ws.rs.core.Response;
 
 @Path("/api/proposal")
 @RegisterRestClient
-@RegisterProvider((AccessTokenRequestReactiveFilter.class))
+@RegisterProvider(AccessTokenRequestReactiveFilter.class)
 @ApplicationScoped
 public interface ProposalRestClient {
 

@@ -17,7 +17,7 @@ import java.util.List;
 
 @Path("/api/opportunity")
 @RegisterRestClient
-@RegisterProvider((AccessTokenRequestReactiveFilter.class))
+@RegisterProvider(AccessTokenRequestReactiveFilter.class)
 @ApplicationScoped
 public interface ReportRestClient {
 
