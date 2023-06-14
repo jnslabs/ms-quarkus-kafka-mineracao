@@ -5,6 +5,7 @@ import org.br.mineracao.dto.ProposalDetailsDTO;
 import org.br.mineracao.entity.ProposalEntity;
 import org.br.mineracao.message.KafkaEvent;
 import org.br.mineracao.repository.ProposalRepository;
+import org.eclipse.microprofile.opentracing.Traced;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,6 +18,7 @@ import java.util.Date;
  */
 
 @ApplicationScoped
+@Traced
 public class ProposalServiceImpl implements ProposalService {
 
     @Inject

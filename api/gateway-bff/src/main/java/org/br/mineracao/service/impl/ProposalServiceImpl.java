@@ -3,6 +3,7 @@ package org.br.mineracao.service.impl;
 import org.br.mineracao.client.ProposalRestClient;
 import org.br.mineracao.dto.ProposalDetailsDTO;
 import org.br.mineracao.service.ProposalService;
+import org.eclipse.microprofile.opentracing.Traced;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -14,6 +15,7 @@ import javax.ws.rs.core.Response;
  * @Created 14/06/2023 - 09:19
  */
 @ApplicationScoped
+@Traced
 public class ProposalServiceImpl implements ProposalService {
 
     @Inject

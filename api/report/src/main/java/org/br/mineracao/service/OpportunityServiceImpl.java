@@ -8,6 +8,7 @@ import org.br.mineracao.entity.QuotationEntity;
 import org.br.mineracao.repository.OpportunityRepository;
 import org.br.mineracao.repository.QuotationRepository;
 import org.br.mineracao.util.CSVHelper;
+import org.eclipse.microprofile.opentracing.Traced;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +27,7 @@ import java.util.List;
  */
 
 @ApplicationScoped
-//@Traced
+@Traced
 public class OpportunityServiceImpl implements OpportunityService {
 
     private final Logger LOG = LoggerFactory.getLogger(this.getClass());

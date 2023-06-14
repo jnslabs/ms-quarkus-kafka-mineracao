@@ -4,6 +4,7 @@ import org.br.mineracao.client.ReportRestClient;
 import org.br.mineracao.dto.OpportunityDTO;
 import org.br.mineracao.service.ReportService;
 import org.br.mineracao.util.CSVHelper;
+import org.eclipse.microprofile.opentracing.Traced;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -16,6 +17,7 @@ import java.util.List;
  * @Created 14/06/2023 - 09:20
  */
 @ApplicationScoped
+@Traced
 public class ReportServiceImpl implements ReportService {
 
     @Inject
