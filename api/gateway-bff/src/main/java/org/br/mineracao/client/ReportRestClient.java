@@ -22,7 +22,6 @@ import java.util.List;
 public interface ReportRestClient {
 
     @GET
-
     @Path("/data")
     List<OpportunityDTO> requestOpportunitiesData();
 }

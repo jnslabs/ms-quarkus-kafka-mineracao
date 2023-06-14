@@ -2,7 +2,6 @@ package org.br.mineracao.client;
 
 import io.quarkus.oidc.token.propagation.reactive.AccessTokenRequestReactiveFilter;
 import org.br.mineracao.dto.ProposalDetailsDTO;
-import org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
@@ -19,7 +18,6 @@ import javax.ws.rs.core.Response;
 @RegisterRestClient
 @RegisterProvider((AccessTokenRequestReactiveFilter.class))
 @ApplicationScoped
-@RegisterClientHeaders
 public interface ProposalRestClient {
 
     @GET
